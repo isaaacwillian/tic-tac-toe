@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(71, 57, 38);
+    color: lightgoldenrodyellow;
+    font-family: cursive;
+}
+header{
+    display: flex;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 50vh;
+    position: relative;
+}
+footer{
+    height: 25vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+h2{
+    background-color: rgb(163, 148, 105);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: calc(15px + 1vw);
+}
+ul{
+    display: flex;
+    list-style: none;
+    width: 45vw;
+    max-width: 350px;
+    min-width: 280px;
+    height: 45vw;
+    max-height: 350px;
+    min-height: 280px;
+    background-color: #ebe2c7;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+.square {
+    width: 31%;
+    height: 31%;
+    background-color: #473926;
+    color:#473926;
+}
+#winner{
+    background-color: rgba(89, 0, 255, 0.808);
+    border-radius: 5px;
+    position: absolute;
+    padding: 20px;
+    transform: rotate(30deg);
+    font-size: calc(20px + 2vw);
+    bottom: 25vh;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    opacity: 0;
+    z-index: -1;
+}
+.win{
+    background-image: url(confete/ZYXV.gif);
+}
+li{
+    position: relative;
+}
+.x{
+    width: 100%;
+    height: 20%;
+    border-radius: 3px;
+    transform: rotate(45deg);
+    position: absolute;
+    background:#756d55;
+    top: 40%;
+}
+.xx{
+    width: 100%;
+    height: 20%;
+    border-radius: 3px;
+    transform: rotate(135deg);
+    position: absolute;
+    background:#756d55;
+    top: 40%;
+}
+.o{
+    width: 85%;
+    height: 85%;
+    border-width: 19px;
+    border-style: solid;
+    border-color: #756d55;;
+    position: absolute;
+    border-radius: 50%;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -42%;
+    transform: translateY(50%);
+}
