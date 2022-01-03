@@ -6,7 +6,7 @@
 body{
     background-color: rgb(71, 57, 38);
     color: lightgoldenrodyellow;
-    font-family: cursive;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 header{
     display: flex;

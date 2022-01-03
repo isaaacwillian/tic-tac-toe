@@ -3,17 +3,25 @@ let winner = document.getElementById("winner");
 let main = document.getElementsByTagName("main")[0];
 let arraySquare = new Array(9);
 let player = true;
-clique = (indexx) => {
-    let index = Number(indexx.innerText);
-    let winn = false;
+let squares = document.querySelectorAll(".square");
+for (squa of squares) {
+    squa.addEventListener('click', clique);
+}
+function clique(element) {
+    if (element.target.children[0] == undefined) {
+        element = element.target.parentElement;
+    } else {
+        element = element.target;
+    }
+    let index = Number(element.id);
     if (arraySquare[index] == undefined) {
         if (player) {
             arraySquare[index] = 1;
-            indexx.children[0].style.background = "white";
-            indexx.children[1].style.background = "white";
+            element.children[0].style.background = "white";
+            element.children[1].style.background = "white";
         } else {
             arraySquare[index] = 2;
-            indexx.children[0].style.borderColor = "white";
+            element.children[0].style.borderColor = "white";
         }
     } else {
         return;
@@ -42,21 +50,21 @@ clique = (indexx) => {
     player = !player;
 }
 
-over = (indexx) => {
-    if (arraySquare[Number(indexx.innerText)] == undefined) {
+over = (element) => {
+    if (arraySquare[Number(element.id)] == undefined) {
         if (player) {
-            indexx.children[0].classList.add("x");
-            indexx.children[1].classList.add("xx");
+            element.children[0].classList.add("x");
+            element.children[1].classList.add("xx");
         } else {
-            indexx.children[0].classList.add("o")
+            element.children[0].classList.add("o")
         }
     }
 }
 
-leave = (indexx) => {
-    if (arraySquare[Number(indexx.innerText)] == undefined) {
-        indexx.children[0].classList.remove("x", "o");
-        indexx.children[1].classList.remove("xx");
+leave = (element) => {
+    if (arraySquare[Number(element.id)] == undefined) {
+        element.children[0].classList.remove("x", "o");
+        element.children[1].classList.remove("xx");
     }
 }
 won = (i) => {
