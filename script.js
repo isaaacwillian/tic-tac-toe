@@ -4,8 +4,21 @@ let main = document.getElementsByTagName("main")[0];
 let arraySquare = new Array(9);
 let player = true;
 let squares = document.querySelectorAll(".square");
+let playersName = document.querySelectorAll("input");
+let player1, player2;
 for (squa of squares) {
     squa.addEventListener('click', clique);
+}
+play = () => {
+    player1 = playersName[0].value;
+    player2 = playersName[1].value;
+    let names = document.getElementsByTagName("footer")[0].children;
+    names[0].innerText = player1 + ": 0";
+    names[1].innerText = player2 + ": 0";
+    document.getElementById("start").style.opacity = "0";
+    setTimeout(() => {
+        document.getElementById("start").style.zIndex = "-1";
+    }, 1000);
 }
 function clique(element) {
     if (element.target.children[0] == undefined) {
@@ -50,7 +63,7 @@ function clique(element) {
     player = !player;
 }
 
-over = (element) => {
+over = element => {
     if (arraySquare[Number(element.id)] == undefined) {
         if (player) {
             element.children[0].classList.add("x");
@@ -61,19 +74,28 @@ over = (element) => {
     }
 }
 
-leave = (element) => {
+leave = element => {
     if (arraySquare[Number(element.id)] == undefined) {
         element.children[0].classList.remove("x", "o");
         element.children[1].classList.remove("xx");
     }
 }
-won = (i) => {
-    console.log(i);
-    winner.innerText = `Jogador ${i} Venceu`;
+won = i => {
+    let playerWin;
+    if (i == 1) {
+        playerWin = player1;
+    } else {
+        playerWin = player2;
+    }
+    winner.innerText = `Jogador ${playerWin} venceu`;
     winner.style.opacity = "1";
     winner.style.zIndex = "1";
     main.classList.add('win');
     console.log(arraySquare);
-    main.children[0].classList.add("zindex");
+    main.children[0].style.zIndex = "-1";
     return;
+}
+players = element => {
+    element.parentElement.style.display = "none";
+    document.getElementById("startplayers").style.display = "inline-block";
 }

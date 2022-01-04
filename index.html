@@ -10,6 +10,24 @@
 </head>
 
 <body>
+    <div id="start">
+        <h1>JOGO DA VELHA</h1>
+        <div id="starting">
+            <h3>Bem vindo, escolha seu modo de jogo:</h3>
+            <br><br><br>
+            <div id="startbut">
+                <button onclick="players(this)">1 vs 1</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button>vs computador</button>
+            </div>
+            <div id="startplayers">
+                <div style=" float:left">
+                    <span>Jogador 1:</span> <input type="text"><br>
+                    <span>Jogador 2:</span> <input type="text">
+                </div>
+                <button id="play" onclick="play()">Jogar</button>
+            </div>
+        </div>
+    </div>
     <header>
         <h1>JOGO DA VELHA</h1>
     </header>
@@ -55,8 +73,8 @@
         <div id="winner">JOGADOR 1 GANHOU</div>
     </main>
     <footer>
-        <h2>Jogador 1:</h2>
-        <h2>Jogador 2:</h2>
+        <h2></h2>
+        <h2></h2>
     </footer>
     <script src="script.js"></script>
 </body>
