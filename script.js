@@ -6,10 +6,12 @@ let player = true;
 let squares = document.querySelectorAll(".square");
 let playersName = document.querySelectorAll("input");
 let player1, player2;
+
 for (squa of squares) {
     squa.addEventListener('click', clique);
 }
-play = () => {
+
+const play = () => {
     player1 = playersName[0].value;
     player2 = playersName[1].value;
     let names = document.getElementsByTagName("footer")[0].children;
@@ -18,8 +20,9 @@ play = () => {
     document.getElementById("start").style.opacity = "0";
     setTimeout(() => {
         document.getElementById("start").style.zIndex = "-1";
-    }, 1000);
+    }, 1200);
 }
+
 function clique(element) {
     if (element.target.children[0] == undefined) {
         element = element.target.parentElement;
@@ -30,8 +33,7 @@ function clique(element) {
     if (arraySquare[index] == undefined) {
         if (player) {
             arraySquare[index] = 1;
-            element.children[0].style.background = "white";
-            element.children[1].style.background = "white";
+            element.children[0].style.color = "white";
         } else {
             arraySquare[index] = 2;
             element.children[0].style.borderColor = "white";
@@ -63,24 +65,23 @@ function clique(element) {
     player = !player;
 }
 
-over = element => {
+const over = element => {
     if (arraySquare[Number(element.id)] == undefined) {
         if (player) {
             element.children[0].classList.add("x");
-            element.children[1].classList.add("xx");
         } else {
             element.children[0].classList.add("o")
         }
     }
 }
 
-leave = element => {
+const leave = element => {
     if (arraySquare[Number(element.id)] == undefined) {
         element.children[0].classList.remove("x", "o");
-        element.children[1].classList.remove("xx");
     }
 }
-won = i => {
+
+const won = i => {
     let playerWin;
     if (i == 1) {
         playerWin = player1;
@@ -95,7 +96,8 @@ won = i => {
     main.children[0].style.zIndex = "-1";
     return;
 }
-players = element => {
+
+const players = element => {
     element.parentElement.style.display = "none";
     document.getElementById("startplayers").style.display = "inline-block";
 }

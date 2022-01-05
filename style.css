@@ -82,30 +82,35 @@ li{
     border-radius: 2px;
     transform: rotate(45deg);
     position: absolute;
-    background:#515286;
+    background:currentColor;
     top: 40%;
 }
-.xx{
+.x::after{
+    content: "";
     width: 100%;
-    height: 20%;
+    height: 100%;
     border-radius: 2px;
-    transform: rotate(135deg);
+    transform: rotate(90deg);
     position: absolute;
-    background:#515286;
-    top: 40%;
+    background: currentColor;
+}
+.colorXO{
+    background: currentColor;
+    color: #64b7ce;
 }
 .o{
     width: 85%;
     height: 85%;
     border-width: 19px;
     border-style: solid;
-    border-color: #515286;
+    border-color: currentColor;
     position: absolute;
     border-radius: 50%;
     bottom: 50%;
     left: 50%;
     margin-left: -42%;
     transform: translateY(50%);
+    background: var(--color);
 }
 .winn{
     background-color: rgb(2, 255, 23);
