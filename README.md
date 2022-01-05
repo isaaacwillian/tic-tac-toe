@@ -1,7 +1,8 @@
 ﻿# JOGO DA VELHA
-### Este é um projeto de jogo da velha para testar meus conhecimentos em HTML, CSS E Javascript.
+### Este é um projeto de jogo da velha para testar meus conhecimentos em HTML, CSS E Javascript
 #
-<img src="readmegif/tictactoe.gif">
+<p>Ainda em desenvolvimento</p>
+<img width="700px" src="readmegif/tictactoe.gif">
 
 #
 <div style="display:inline-block">
