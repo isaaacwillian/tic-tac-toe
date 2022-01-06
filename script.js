@@ -9,6 +9,8 @@ let player1, player2;
 
 for (squa of squares) {
     squa.addEventListener('click', clique);
+    squa.addEventListener('mouseover', over);
+    squa.addEventListener('mouseleave', leave);
 }
 
 const play = () => {
@@ -22,13 +24,15 @@ const play = () => {
         document.getElementById("start").style.zIndex = "-1";
     }, 1200);
 }
-
-function clique(element) {
+function findElement(element) {
     if (element.target.children[0] == undefined) {
-        element = element.target.parentElement;
+        return element.target.parentElement;
     } else {
-        element = element.target;
+        return element.target;
     }
+}
+function clique(element) {
+    element = findElement(element);
     let index = Number(element.id);
     if (arraySquare[index] == undefined) {
         if (player) {
@@ -43,20 +47,20 @@ function clique(element) {
     }
     for (let i = 0; i < 3; i++) {
 
-        if (arraySquare[i * 3] == arraySquare[i * 3 + 1] && arraySquare[i * 3] == arraySquare[i * 3 + 2] && arraySquare[i * 3] != undefined) {                        //Vertical
-            square[i * 3].classList.add("winn");
+        if (arraySquare[i * 3] == arraySquare[i * 3 + 1] && arraySquare[i * 3] == arraySquare[i * 3 + 2] && arraySquare[i * 3] != undefined) {
+            square[i * 3].classList.add("winn");              //Vertical
             square[i * 3 + 1].classList.add("winn");
             square[i * 3 + 2].classList.add("winn");
             won(arraySquare[i * 3]);
         }
-        if (arraySquare[i] == arraySquare[i + 3] && arraySquare[i] == arraySquare[i + 6] && arraySquare[i] != undefined) {                        //Horizontal
-            square[i].classList.add("winn");
+        if (arraySquare[i] == arraySquare[i + 3] && arraySquare[i] == arraySquare[i + 6] && arraySquare[i] != undefined) {
+            square[i].classList.add("winn");           //Horizontal
             square[i + 3].classList.add("winn");
             square[i + 6].classList.add("winn");
             won(arraySquare[i]);
         }
-        if (arraySquare[i] == arraySquare[4] && arraySquare[i] == arraySquare[i + 8 + (-i * 2)] && arraySquare[i] != undefined) {                       //Diagonais
-            square[i].classList.add("winn");
+        if (arraySquare[i] == arraySquare[4] && arraySquare[i] == arraySquare[i + 8 + (-i * 2)] && arraySquare[i] != undefined) {
+            square[i].classList.add("winn");                  //Diagonais
             square[4].classList.add("winn");
             square[i + 8 + (-i * 2)].classList.add("winn");
             won(arraySquare[i]);
@@ -65,7 +69,8 @@ function clique(element) {
     player = !player;
 }
 
-const over = element => {
+function over(element) {
+    element = findElement(element);
     if (arraySquare[Number(element.id)] == undefined) {
         if (player) {
             element.children[0].classList.add("x");
@@ -75,7 +80,8 @@ const over = element => {
     }
 }
 
-const leave = element => {
+function leave(element) {
+    element = findElement(element);
     if (arraySquare[Number(element.id)] == undefined) {
         element.children[0].classList.remove("x", "o");
     }
@@ -88,7 +94,7 @@ const won = i => {
     } else {
         playerWin = player2;
     }
-    winner.innerText = `Jogador ${playerWin} venceu`;
+    winner.innerText = `${playerWin} venceu`;
     winner.style.opacity = "1";
     winner.style.zIndex = "1";
     main.classList.add('win');

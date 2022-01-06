@@ -16,13 +16,13 @@
             <h3>Bem vindo, escolha seu modo de jogo:</h3>
             <br><br><br>
             <div id="startbut">
-                <button onclick="players(this)">1 vs 1</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button onclick="players(this)">1 vs 1</button>
                 <button>vs computador</button>
             </div>
             <div id="startplayers">
                 <div style=" float:left">
-                    <span>Jogador 1:</span> <input type="text"><br>
-                    <span>Jogador 2:</span> <input type="text">
+                    <label>Jogador 1:<input type="text"></label> <br>
+                    <label>Jogador 2:<input type="text" minlength="2" maxlength="10"></label>
                 </div>
                 <button id="play" onclick="play()">Jogar</button>
             </div>
@@ -33,35 +33,35 @@
     </header>
     <main>
         <ul id="ul">
-            <li id="0" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="0" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="1" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="1" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="2" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="2" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="3" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="3" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="4" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="4" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="5" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="5" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="6" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="6" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="7" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="7" class="square">
                 <div class="colorXO"></div>
             </li>
-            <li id="8" class="square" onmouseover="over(this)" onmouseleave="leave(this)">
+            <li id="8" class="square">
                 <div class="colorXO"></div>
             </li>
         </ul>
-        <div id="winner">JOGADOR 1 GANHOU</div>
+        <div id="winner"></div>
     </main>
     <footer>
         <h2></h2>
