@@ -52,19 +52,33 @@ function clique(element) {
             square[i * 3 + 1].classList.add("winn");
             square[i * 3 + 2].classList.add("winn");
             won(arraySquare[i * 3]);
+            return;
         }
         if (arraySquare[i] == arraySquare[i + 3] && arraySquare[i] == arraySquare[i + 6] && arraySquare[i] != undefined) {
             square[i].classList.add("winn");           //Horizontal
             square[i + 3].classList.add("winn");
             square[i + 6].classList.add("winn");
             won(arraySquare[i]);
+            return;
         }
         if (arraySquare[i] == arraySquare[4] && arraySquare[i] == arraySquare[i + 8 + (-i * 2)] && arraySquare[i] != undefined) {
             square[i].classList.add("winn");                  //Diagonais
             square[4].classList.add("winn");
             square[i + 8 + (-i * 2)].classList.add("winn");
             won(arraySquare[i]);
+            return;
         }
+    }
+    let cont = 0;
+    arraySquare.forEach(element => {
+        if (element) {
+            cont++
+        }
+    });
+    if (cont == 9) {
+        winner.innerText = `Deu velha`;
+        winner.style.opacity = "1";
+        winner.style.zIndex = "1";
     }
     player = !player;
 }
@@ -98,7 +112,6 @@ const won = i => {
     winner.style.opacity = "1";
     winner.style.zIndex = "1";
     main.classList.add('win');
-    console.log(arraySquare);
     main.children[0].style.zIndex = "-1";
     return;
 }
