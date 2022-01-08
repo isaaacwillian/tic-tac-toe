@@ -1,12 +1,20 @@
 let square = document.getElementsByClassName("square");
 let winner = document.getElementById("winner");
 let main = document.getElementsByTagName("main")[0];
-let arraySquare = new Array(9);
-let player = true;
 let squares = document.querySelectorAll(".square");
 let playersName = document.querySelectorAll("input");
+let buttonStart = document.getElementById('play');
+let arraySquare = new Array(9);
+let player = true;
+let vscomputer = false;
 let player1, player2;
 
+buttonStart.addEventListener('click', () => {
+    if (playersName[0].validity.valid && playersName[1].validity.valid) {
+    } else {
+        console.log("pode não")
+    }
+})
 for (squa of squares) {
     squa.addEventListener('click', clique);
     squa.addEventListener('mouseover', over);
@@ -14,15 +22,21 @@ for (squa of squares) {
 }
 
 const play = () => {
-    player1 = playersName[0].value;
-    player2 = playersName[1].value;
-    let names = document.getElementsByTagName("footer")[0].children;
-    names[0].innerText = player1 + ": 0";
-    names[1].innerText = player2 + ": 0";
-    document.getElementById("start").style.opacity = "0";
-    setTimeout(() => {
-        document.getElementById("start").style.zIndex = "-1";
-    }, 1200);
+    if (playersName[0].value != '' && playersName[1].value != '') {
+        player1 = playersName[0].value;
+        player2 = playersName[1].value;
+        let names = document.getElementsByTagName("footer")[0].children;
+        names[0].innerText = player1 + ": 0";
+        names[1].innerText = player2 + ": 0";
+        document.getElementById("start").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("start").style.zIndex = "-1";
+        }, 1200);
+    } else {
+        playersName.forEach(element => {
+            element.classList.add('validate');
+        });
+    }
 }
 function findElement(element) {
     if (element.target.children[0] == undefined) {
@@ -119,4 +133,8 @@ const won = i => {
 const players = element => {
     element.parentElement.style.display = "none";
     document.getElementById("startplayers").style.display = "inline-block";
+}
+function computer(element) {
+    element.parentElement.style.display = "none";
+    document.getElementById("chooseLevel").style.display = "flex";
 }

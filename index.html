@@ -17,14 +17,21 @@
             <br><br><br>
             <div id="startbut">
                 <button onclick="players(this)">1 vs 1</button>
-                <button>vs computador</button>
+                <button onclick="computer(this)">vs computador</button>
             </div>
             <div id="startplayers">
                 <div style=" float:left">
-                    <label>Jogador 1:<input type="text"></label> <br>
-                    <label>Jogador 2:<input type="text" minlength="2" maxlength="10"></label>
+                    <label>Jogador 1: <input type="text" maxlength="15" required class="inputt"></label> <br>
+                    <label>Jogador 2: <input type="text" maxlength="15" required class="inputt"></label>
                 </div>
                 <button id="play" onclick="play()">Jogar</button>
+            </div>
+            <div id="chooseLevel">
+                <div id="playervs">
+                    Jogador: <input type="text" class="inputt">
+                </div>
+                <button>Fácil</button>
+                <button>Impossível</button>
             </div>
         </div>
     </div>

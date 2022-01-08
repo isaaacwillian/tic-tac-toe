@@ -149,8 +149,17 @@ div#start button{
     display: none;
     margin-left: 20%;
 }
-#startplayers input{
+#chooseLevel{
+    display:none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.inputt{
     border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 2px;
 }
 #play{
     float: right;
@@ -162,4 +171,12 @@ div#start button{
             float: none;
             margin: 20px;
         }
+}
+.validate:invalid {
+    border: 1px solid red;
+    background-color: rgb(252, 239, 239);
+    box-shadow: 0px 0px 5px rgb(252, 84, 84);
+}
+#playervs{
+    width: 100vw;
 }
